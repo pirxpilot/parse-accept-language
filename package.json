@@ -1,0 +1,28 @@
+{
+  "name": "parse-accept-language",
+  "version": "0.0.0",
+  "description": "Parse 'Accept-Language' header and cache the result in request.",
+  "author": {
+    "name": "Damian Krzeminski",
+    "email": "pirxpilot@code42day.com",
+    "url": "https://code42day.com"
+  },
+  "repository": "code42day/parse-accept-language",
+  "license": "MIT",
+  "keywords": [
+    "parse-accept-language",
+    "localization",
+    "connect",
+    "i18n",
+    "l10n"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "jshint": "^2.7.0",
+    "mocha": "^2.2.4",
+    "should": "^6.0.1"
+  },
+  "scripts": {
+    "test": "make check"
+  }
+}
