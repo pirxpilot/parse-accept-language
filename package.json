@@ -1,6 +1,6 @@
 {
   "name": "parse-accept-language",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Parse 'Accept-Language' header and cache the result in request.",
   "author": {
     "name": "Damian Krzeminski",
