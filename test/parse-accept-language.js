@@ -65,4 +65,16 @@ describe('parse-accept-language node module', function () {
     parsed[1].language.should.eql('en');
     parsed[2].language.should.eql('de');
   });
+
+  it('convert region to uppercase', function() {
+    var req = request('en-us');
+    var parsed = pal(req);
+
+    parsed.should.be.instanceof(Array).and.have.lengthOf(1);
+
+    parsed[0].q.should.eql(1);
+    parsed[0].value.should.eql('en-us');
+    parsed[0].region.should.eql('US');
+    parsed[0].language.should.eql('en');
+  });
 });
