@@ -22,13 +22,13 @@ var pal = parseAcceptLanguage(req);
 
 ## License
 
-MIT © [code42day](https://code42day.com)
+MIT © [Damian Krzeminski](https://pirxpilot.me)
 
 [npm-image]: https://img.shields.io/npm/v/parse-accept-language.svg
 [npm-url]: https://npmjs.org/package/parse-accept-language
 
-[travis-url]: https://travis-ci.org/code42day/parse-accept-language
-[travis-image]: https://img.shields.io/travis/code42day/parse-accept-language.svg
+[travis-url]: https://travis-ci.org/pirxpilot/parse-accept-language
+[travis-image]: https://img.shields.io/travis/pirxpilot/parse-accept-language.svg
 
-[gemnasium-image]: https://img.shields.io/gemnasium/code42day/parse-accept-language.svg
-[gemnasium-url]: https://gemnasium.com/code42day/parse-accept-language
+[gemnasium-image]: https://img.shields.io/gemnasium/pirxpilot/parse-accept-language.svg
+[gemnasium-url]: https://gemnasium.com/pirxpilot/parse-accept-language

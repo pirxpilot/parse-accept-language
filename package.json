@@ -4,10 +4,10 @@
   "description": "Parse 'Accept-Language' header and cache the result in request.",
   "author": {
     "name": "Damian Krzeminski",
-    "email": "pirxpilot@code42day.com",
-    "url": "https://code42day.com"
+    "email": "pirxpilot@furkot.com",
+    "url": "https://pirxpilot.me"
   },
-  "repository": "code42day/parse-accept-language",
+  "repository": "pirxpilot/parse-accept-language",
   "license": "MIT",
   "keywords": [
     "parse-accept-language",
