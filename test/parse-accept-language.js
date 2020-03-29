@@ -8,6 +8,12 @@ function request(language) {
   };
 }
 
+function pluck(prop) {
+  return function(item) {
+    return item[prop];
+  };
+}
+
 describe('parse-accept-language node module', function () {
   it('parse empty', function () {
     var req = request('');
@@ -64,6 +70,17 @@ describe('parse-accept-language node module', function () {
     parsed[0].language.should.eql('pl');
     parsed[1].language.should.eql('en');
     parsed[2].language.should.eql('de');
+  });
+
+  it('parse country variants', function() {
+    var req = request('de-DE,de-AT;q=0.8,de;q=0.6,en-US;q=0.4,en;q=0.2');
+    var parsed = pal(req);
+
+    parsed.should.be.instanceof(Array).and.have.lengthOf(5);
+    parsed.map(pluck('value')).should.eql(['de-DE', 'de-AT', 'de', 'en-US', 'en']);
+    parsed.map(pluck('region')).should.eql(['DE', 'AT', '', 'US', '']);
+    parsed.map(pluck('language')).should.eql(['de', 'de', 'de', 'en', 'en']);
+    parsed.map(pluck('q')).should.eql([1, 0.8, 0.6, 0.4, 0.2]);
   });
 
   it('convert region to uppercase', function() {
