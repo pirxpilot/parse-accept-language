@@ -1,4 +1,13 @@
 
+2.0.0 / 2020-03-29
+==================
+
+ * update node version in Travis CJ
+ * update dependencies
+ * rewrite in ES6
+ * replace .npmignore with package.json
+ * add test for country variants
+
 1.0.2 / 2017-02-20
 ==================
 
