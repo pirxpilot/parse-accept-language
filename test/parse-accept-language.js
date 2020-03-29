@@ -1,4 +1,4 @@
-var pal = require('../');
+const pal = require('../');
 
 function request(language) {
   return {
@@ -16,8 +16,8 @@ function pluck(prop) {
 
 describe('parse-accept-language node module', function () {
   it('parse empty', function () {
-    var req = request('');
-    var parsed = pal(req);
+    let req = request('');
+    let parsed = pal(req);
 
     parsed.should.be.instanceof(Array).and.have.lengthOf(0);
 
@@ -28,8 +28,8 @@ describe('parse-accept-language node module', function () {
   });
 
   it('parse standard', function () {
-    var req = request('en-US,en;q=0.8,pl;q=0.6');
-    var parsed = pal(req);
+    const req = request('en-US,en;q=0.8,pl;q=0.6');
+    const parsed = pal(req);
 
     parsed.should.be.instanceof(Array).and.have.lengthOf(3);
 
@@ -51,8 +51,8 @@ describe('parse-accept-language node module', function () {
   });
 
   it('parse out of order', function () {
-    var req = request('de-DE;q=0.2,pl,en-GB;q=0.6');
-    var parsed = pal(req);
+    const req = request('de-DE;q=0.2,pl,en-GB;q=0.6');
+    const parsed = pal(req);
     parsed.should.be.instanceof(Array).and.have.lengthOf(3);
 
     parsed[0].q.should.eql(1);
@@ -73,8 +73,8 @@ describe('parse-accept-language node module', function () {
   });
 
   it('parse country variants', function() {
-    var req = request('de-DE,de-AT;q=0.8,de;q=0.6,en-US;q=0.4,en;q=0.2');
-    var parsed = pal(req);
+    const req = request('de-DE,de-AT;q=0.8,de;q=0.6,en-US;q=0.4,en;q=0.2');
+    const parsed = pal(req);
 
     parsed.should.be.instanceof(Array).and.have.lengthOf(5);
     parsed.map(pluck('value')).should.eql(['de-DE', 'de-AT', 'de', 'en-US', 'en']);
@@ -84,8 +84,8 @@ describe('parse-accept-language node module', function () {
   });
 
   it('convert region to uppercase', function() {
-    var req = request('en-us');
-    var parsed = pal(req);
+    const req = request('en-us');
+    const parsed = pal(req);
 
     parsed.should.be.instanceof(Array).and.have.lengthOf(1);
 
