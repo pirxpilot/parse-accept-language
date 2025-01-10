@@ -4,8 +4,8 @@ const pal = require('../');
 
 function request(language) {
   return {
-    get: function get(header) {
-      return (header === 'accept-language') && language;
+    get headers() {
+      return { 'accept-language': language };
     }
   };
 }
