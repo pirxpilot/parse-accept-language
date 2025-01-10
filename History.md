@@ -1,4 +1,11 @@
 
+2.1.0 / 2025-01-09
+==================
+
+ * use standard `req.headers` instead of `req.get()`
+ * replace Travis CI with github actions
+ * replace mocha/should with node:test and node:assert
+
 2.0.0 / 2020-03-29
 ==================
 
