@@ -1,6 +1,6 @@
 [![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Dependency Status][gemnasium-image]][gemnasium-url]
+[![Build Status][build-image]][build-url]
+[![Dependency Status][deps-image]][deps-url]
 
 # parse-accept-language
 
@@ -24,11 +24,11 @@ var pal = parseAcceptLanguage(req);
 
 MIT © [Damian Krzeminski](https://pirxpilot.me)
 
-[npm-image]: https://img.shields.io/npm/v/parse-accept-language.svg
+[npm-image]: https://img.shields.io/npm/v/parse-accept-language
 [npm-url]: https://npmjs.org/package/parse-accept-language
 
-[travis-url]: https://travis-ci.org/pirxpilot/parse-accept-language
-[travis-image]: https://img.shields.io/travis/pirxpilot/parse-accept-language.svg
+[build-url]: https://github.com/pirxpilot/parse-accept-language/actions/workflows/check.yaml
+[build-image]: https://img.shields.io/github/actions/workflow/status/pirxpilot/parse-accept-language/check.yaml?branch=main
 
-[gemnasium-image]: https://img.shields.io/gemnasium/pirxpilot/parse-accept-language.svg
-[gemnasium-url]: https://gemnasium.com/pirxpilot/parse-accept-language
+[deps-image]: https://img.shields.io/librariesio/release/npm/parse-accept-language
+[deps-url]: https://libraries.io/npm/parse-accept-language
