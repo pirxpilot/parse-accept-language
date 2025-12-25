@@ -1,5 +1,5 @@
 import test from 'node:test';
-import pal from '../lib/parse-accept-language.js';
+import pal, { toArray } from '../lib/parse-accept-language.js';
 
 function request(language) {
   return {
@@ -107,4 +107,70 @@ test('convert region to uppercase', t => {
   t.assert.equal(parsed[0].value, 'en-us');
   t.assert.equal(parsed[0].region, 'US');
   t.assert.equal(parsed[0].language, 'en');
+});
+
+test('parse invalid quality values', t => {
+  const req = request('en;q=invalid,fr;q=abc,de');
+  const parsed = pal(req);
+
+  t.assert.ok(Array.isArray(parsed));
+  t.assert.equal(parsed.length, 3);
+
+  // Invalid q values should default to 1
+  t.assert.equal(parsed[0].q, 1);
+  t.assert.equal(parsed[1].q, 1);
+  t.assert.equal(parsed[2].q, 1);
+
+  t.assert.equal(parsed[0].value, 'en');
+  t.assert.equal(parsed[1].value, 'fr');
+  t.assert.equal(parsed[2].value, 'de');
+});
+
+test('parse with whitespace', t => {
+  const req = request('  en-US  , fr;q=0.8 ');
+  const parsed = pal(req);
+
+  t.assert.ok(Array.isArray(parsed));
+  t.assert.equal(parsed.length, 2);
+
+  t.assert.equal(parsed[0].value, 'en-US');
+  t.assert.equal(parsed[1].value, 'fr');
+  t.assert.equal(parsed[0].q, 1);
+  t.assert.equal(parsed[1].q, 0.8);
+});
+
+test('parse empty tag values', t => {
+  const req = request('en,,fr');
+  const parsed = pal(req);
+
+  t.assert.ok(Array.isArray(parsed));
+  t.assert.equal(parsed.length, 2);
+
+  t.assert.equal(parsed[0].value, 'en');
+  t.assert.equal(parsed[1].value, 'fr');
+});
+
+test('raw property contains original header', t => {
+  const req = request('en-US,fr;q=0.8');
+  const parsed = pal(req);
+
+  t.assert.equal(parsed._raw, 'en-US,fr;q=0.8');
+});
+
+test('toArray export', t => {
+  const result = toArray('de-DE,en;q=0.8');
+
+  t.assert.ok(Array.isArray(result));
+  t.assert.equal(result.length, 2);
+  t.assert.equal(result[0].value, 'de-DE');
+  t.assert.equal(result[1].value, 'en');
+  t.assert.equal(result[0].q, 1);
+  t.assert.equal(result[1].q, 0.8);
+});
+
+test('toArray with undefined', t => {
+  const result = toArray();
+
+  t.assert.ok(Array.isArray(result));
+  t.assert.equal(result.length, 0);
 });
