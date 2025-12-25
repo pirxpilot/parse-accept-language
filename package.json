@@ -11,6 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/pirxpilot/parse-accept-language.git"
   },
+  "type": "module",
+  "exports": "./lib/parse-accept-language.js",
   "license": "MIT",
   "keywords": [
     "parse-accept-language",
@@ -19,15 +21,13 @@
     "i18n",
     "l10n"
   ],
-  "dependencies": {},
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4"
+    "@biomejs/biome": "2.3.10"
   },
   "scripts": {
     "test": "make check"
   },
   "files": [
-    "index.js",
     "lib"
   ]
 }
