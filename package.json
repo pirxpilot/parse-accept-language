@@ -11,6 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/pirxpilot/parse-accept-language.git"
   },
+  "type": "module",
+  "exports": "./lib/parse-accept-language.js",
   "license": "MIT",
   "keywords": [
     "parse-accept-language",
@@ -26,7 +28,6 @@
     "test": "make check"
   },
   "files": [
-    "index.js",
     "lib"
   ]
 }
